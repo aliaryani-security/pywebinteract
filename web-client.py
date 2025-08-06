@@ -2,4 +2,7 @@
 
 import requests
 
-url = "192.168.1.100"
+url = "http://192.168.1.100"
+
+response = requests.get (url)
+print (response.content.decode())
