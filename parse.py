@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
 
 import urllib3
+from urllib.request import urlopen
+from bs4 import BeautifulSoup
 
 http = urllib3.PoolManager()
 
-url = "http://192.168.1.100"
+url = urlopen ('http://192.168.1.100')
 
-response = http.request('GET', url)
-print (response.data.decode('utf-8'))
+page = url.read()
+soup = BeautifulSoup (page, features="html.parser")
+
+print (soup)
